@@ -20,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CoffeeComponent coffeeComponent = DaggerCoffeeComponent.create();
+        /*
+         * com.doubleclick.dagger2.CoffeeModule must be set
+         * CoffeeComponent coffeeComponent0 = DaggerCoffeeComponent.builder().build();
+         * */
+        CoffeeComponent coffeeComponent = DaggerCoffeeComponent.builder().sugar(55).milk(6).build();
         coffeeComponent.injectActivity(this);
         TextView t = findViewById(R.id.text);
         t.setText(coffee.getCoffeeCup());
